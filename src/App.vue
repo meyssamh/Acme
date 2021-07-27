@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<!-- App container -->
+	<div class="app">
+		<app-header></app-header>
+		<app-main></app-main>
+		<app-action :action-title="actionTitle"></app-action>
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/tarifCard/header/Header.vue';
+import Main from './components/tarifCard/main/Main.vue';
+import Action from './components/tarifCard/action/Action.vue';
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    HelloWorld
+    'app-header': Header,
+	'app-main': Main,
+	'app-action': Action,
+  },
+  data() {
+	return {
+		actionTitle: "Connect now"
+	}
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+	box-sizing: content-box;
+	font-family: Roboto, sans-serif;
 }
 </style>
